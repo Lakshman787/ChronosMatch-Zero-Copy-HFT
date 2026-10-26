@@ -14,8 +14,13 @@ def show_details():
     print("\nEvent Details:")
 
     for e in events:
+        if e[3]==0:
+            side="BUY"
+        else:
+            side="SELL"
+            
         print("ID:", e[0], "Price:", e[1],
-              "Qty:", e[2], "Side:", e[3])
+              "Qty:", e[2], "Side:", side)
 
 
 for i in range(10):
