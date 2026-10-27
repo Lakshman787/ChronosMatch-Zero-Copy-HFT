@@ -8,6 +8,9 @@ def add_event(id, price, qty, side):
     count += 1
 
 def show_details():
+    buy_count=0
+    sell_count=0
+    
     print("Total events:", len(events))
     print("Total received:", count)
 
@@ -16,11 +19,15 @@ def show_details():
     for e in events:
         if e[3]==0:
             side="BUY"
+            buy_count +=1
         else:
             side="SELL"
+            sell_count +=1
             
         print("ID:", e[0], "Price:", e[1],
               "Qty:", e[2], "Side:", side)
+     print("\nBUY event:", buy_count)
+     print("SELL event:", sell_count)
 
 
 for i in range(10):
