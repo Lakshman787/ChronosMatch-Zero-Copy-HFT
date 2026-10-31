@@ -10,10 +10,11 @@ def add_event(id, price, qty, side):
 def show_details():
     buy_count=0
     sell_count=0
+    total_qty=0
+    total_value=0
     
     print("Total events:", len(events))
     print("Total received:", count)
-
     print("\nEvent Details:")
 
     for e in events:
@@ -24,10 +25,16 @@ def show_details():
             side="SELL"
             sell_count +=1
             
+         total_qty += e[2]
+         total_value += e[1] * e[2]
+        
         print("ID:", e[0], "Price:", e[1],
               "Qty:", e[2], "Side:", side)
-     print("\nBUY event:", buy_count)
-     print("SELL event:", sell_count)
+        
+    print("\nBUY event:", buy_count)
+    print("SELL event:", sell_count)
+    print("total Qty:", total_qty)
+    print("total Value:", total_value)
 
 
 for i in range(10):
