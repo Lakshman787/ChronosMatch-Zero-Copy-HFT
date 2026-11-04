@@ -3,6 +3,11 @@ count = 0
 
 def add_event(id, price, qty, side):
     global count
+
+    if price <= 0 or qty <=0 or side not in (0, 1):
+        print("Invalid event data:", id)
+        return
+        
     event = (id, price, qty, side)
     events.append(event)
     count += 1
@@ -23,11 +28,11 @@ def show_details():
         if e[3] == 0:
             side="BUY"
             buy_count +=1
-            buy_value+=e[1]* e[2]
+            buy_value +=e[1]* e[2]
         else:
-            side="SELL"
+            side= "SELL"
             sell_count +=1
-            sell_value +=e[1]*e[2]
+            sell_value +=e[1]* e[2]
             
          total_qty += e[2]
          total_value += e[1] * e[2]
