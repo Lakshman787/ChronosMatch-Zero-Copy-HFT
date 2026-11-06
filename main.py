@@ -12,6 +12,30 @@ def add_event(id, price, qty, side):
     events.append(event)
     count += 1
 
+def find_event(search_id):
+    found = False
+
+    for e in events:
+        if e[0] == search_id:
+            found = True
+
+            if e[3] == 0:
+                found True
+
+                if e[3] == 0:
+                    side = "BUY"
+                else:
+                    side = "SELL"
+                print("\nEvent Found:")
+                print("ID:", e[0])
+                print("Price:", e[1])
+                print("Qty:", e[2])
+                print("side:", side)
+                brek
+
+    if not found:
+          print("\nEvent not found:", search_id)
+              
 def show_details():
     buy_count= 0
     sell_count= 0
@@ -47,7 +71,6 @@ def show_details():
     print("Total Buy Value:", buy_value)
     print("Total sell value:", sell_value)
 
-
 for i in range(10):
     price = 100 + (i % 5)
     qty = 10
@@ -55,4 +78,9 @@ for i in range(10):
 
     add_event(i, price, qty, side)
 
+add_event(i, price, qty, side)
+
+find_event(5)
+find_event(15)
+    
 show_details()
