@@ -26,7 +26,7 @@ def find_event(search_id):
                     side = "BUY"
                 else:
                     side = "SELL"
-                print("\nEvent Found:")
+                print("Event Found:")
                 print("ID:", e[0])
                 print("Price:", e[1])
                 print("Qty:", e[2])
@@ -34,7 +34,23 @@ def find_event(search_id):
                 brek
 
     if not found:
-          print("\nEvent not found:", search_id)
+          print("Event not found:", search_id)
+
+def filter_events(search_side):
+    found = False
+    if search_side == 0:
+        side_name = "BUY"
+    else:
+        side_name = "SELL"
+    print(side_name, "Events:")
+    for e in events:
+        if e[3] == search_side:
+            found = True
+            print("ID:", e[0], "Price:", e[1],
+                  "Qty:", e[2], "Side:", side_name)
+    if not found:
+        print("No", side_name, "events found")
+
               
 def show_details():
     buy_count= 0
@@ -46,7 +62,7 @@ def show_details():
     
     print("Total events:", len(events))
     print("Total received:", count)
-    print("\nEvent Details:")
+    print("Event Details:")
 
     for e in events:
         if e[3] == 0:
@@ -64,7 +80,7 @@ def show_details():
         print("ID:", e[0], "Price:", e[1],
               "Qty:", e[2], "Side:", side)
         
-    print("\nBUY event:", buy_count)
+    print("BUY event:", buy_count)
     print("SELL event:", sell_count)
     print("total Qty:", total_qty)
     print("total Value:", total_value)
@@ -75,12 +91,11 @@ for i in range(10):
     price = 100 + (i % 5)
     qty = 10
     side = i % 2
-
     add_event(i, price, qty, side)
 
-add_event(i, price, qty, side)
-
+add_event(10,0,10,0)
 find_event(5)
 find_event(15)
-    
+filter_events(0)
+filter_events(1) 
 show_details()
