@@ -51,6 +51,23 @@ def filter_events(search_side):
     if not found:
         print("No", side_name, "events found")
 
+def sort_events():
+    sorted_events = events[:]
+    for i in range(len(sorted_events)):
+        for j in range(i + 1, len(sorted_events)):
+            if sorted_events[j][1] < sorted_events[i][1]:
+                temp = sorted_events[i]
+                sorted_events[i] = sorted_events[j]
+                sorted_events[j] = temp
+    print("Events Sorted by Price:")
+    for e in sorted_events:
+        if e[3] == 0:
+            side = "BUY"
+        else:
+            side = "SELL"
+        print("ID:", e[0], "Price:", e[1],
+              "Qty:", e[2], "Side:", side)
+
               
 def show_details():
     buy_count= 0
@@ -98,4 +115,6 @@ find_event(5)
 find_event(15)
 filter_events(0)
 filter_events(1) 
+show_details()
+sort_events()
 show_details()
